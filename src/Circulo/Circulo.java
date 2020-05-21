@@ -1,6 +1,6 @@
 package Circulo;
 
-public class Circulo {
+public class Circulo implements Comparable<Circulo> {
 
     private double radio;
 
@@ -22,6 +22,20 @@ public class Circulo {
 
     public void setRadio(float radio) {
         this.radio = radio;
+    }
+
+    @Override
+    public int compareTo(Circulo c) {
+        if (c.getRadio() > radio) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Radio: %.2f Perimetro: %.2f Area: %.2f%n", radio, perimetro(), area());
     }
 
 }
